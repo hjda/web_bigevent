@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 导入layui样式:先导入第三方类样式，如果将顺序乱了话，下面的样式会叠加到三方样式库上，效果不显示 -->
+  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+  <!-- 导入自己的样式文件 -->
+  <link rel="stylesheet" href="/assets/css/user/user_info.css" />
+</head>
+
+<body>
+  <!-- 卡片面板 -->
+  <div class="layui-card">
+    <div class="layui-card-header">个人信息</div>
+    
+    <div class="layui-card-body">
+      <!-- form表单区域 -->
+      <!-- lay-filter=""：快速给表单赋值或者取值 -->
+      <form class="layui-form" lay-filter="formUserInfo">
+        <!-- 在form表单里面添加隐藏域：只要是在form表单里面都可以;可以当作普通的文本域使用，但是它跟普通文本域的区别就是不可见-->
+        <input type="hidden" name="id" value=""/>
+
+        <div class="layui-form-item">
+          <label class="layui-form-label">登录名称</label>
+          <div class="layui-input-block">
+            <!-- readonly:只读；不予修改 -->
+            <!-- 三个表单中的name 应该修改成跟接口文档一致 -->
+            <input type="text" name="username" required lay-verify="required" placeholder="请输入登录名称" autocomplete="off"
+              class="layui-input" readonly/>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">用户昵称</label>
+          <div class="layui-input-block">
+            <input type="text" name="nickname" required lay-verify="required|nickname" placeholder="请输入用户昵称" autocomplete="off"
+              class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">用户邮箱</label>
+          <div class="layui-input-block">
+            <!-- email:layui给出了自己的邮箱定义规则，不需要自己添加规则 -->
+            <input type="text" name="email" required lay-verify="required|email" placeholder="请输入用户邮箱" autocomplete="off"
+              class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btnReset">重置</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 导入layui的js文件 -->
+  <script src="/assets/lib/layui/layui.all.js"></script>
+  <!-- 导入jquery的js文件 -->
+  <script src="/assets/lib/jquery.js"></script>
+  <!-- 导入bashAPI.js公共文件:共同请求同一个api的根路径 -->
+  <script src="/assets/js/baseAPI.js"></script>
+  <!-- 导入自己的js文件 -->
+  <script src="/assets/js/user_info.js"></script>
+</body>
+
+</html>

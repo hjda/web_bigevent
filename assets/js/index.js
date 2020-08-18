@@ -4,6 +4,7 @@ $(function () {
   // 点击按钮,实现退出功能
   $('#btnLogout').on('click', function () {
     // console.log('ok');
+
     // 采用layui里面的组件
     // 注意：必须声明组件
     var layer = layui.layer;
